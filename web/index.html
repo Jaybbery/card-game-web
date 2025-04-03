@@ -3,33 +3,19 @@
 <head>
     <title>Card Game</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <style>
-        body { background: #2c3e50; color: white; }
-        .booster { 
-            background: #e67e22; 
-            padding: 20px; 
-            cursor: pointer;
-            border-radius: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>🎴 Ваши карты</h1>
-        <div id="cards"></div>
-        <div class="booster" onclick="openBooster()">📦 Открыть бустер</div>
+        <h1>🃏 Card Quest</h1>
+        <div class="balance">Монеты: <span id="coins">0</span></div>
+        
+        <div class="booster" onclick="openBooster('basic')">
+            📦 Базовый бустер (50 монет)
+        </div>
+
+        <div class="cards-grid" id="cards"></div>
     </div>
-
-    <script>
-        // Инициализация Web App
-        const tg = window.Telegram.WebApp;
-        tg.expand();
-
-        // Отправка действия в бота
-        function openBooster() {
-            tg.sendData(JSON.stringify({ action: "open_booster" }));
-            tg.close();
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
